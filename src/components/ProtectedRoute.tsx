@@ -7,7 +7,7 @@ type Props = {
 }
 const ProtectedRoute:React.FC<Props> = ({ children }) => {
     const router = useRouter();
-    const { user } = useContext(UserContext);
+    const { user } = useContext<any>(UserContext);
 
     useEffect(() => {
         async function checkAuthStatus() {

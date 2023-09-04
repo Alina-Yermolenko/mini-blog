@@ -49,7 +49,7 @@ const SignUp = () => {
             router.push('/general-feed')
 
             return user.user;
-        } catch (error) {
+        } catch (error: any) {
             setSuccess(false)
             setError('Error registering user:' + error.message);
             return null;

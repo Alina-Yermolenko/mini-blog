@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 export const Header = () => {
     const router = useRouter();
-    const { user, setUser } = useContext(UserContext);
+    const { user, setUser } = useContext<any>(UserContext);
     const supabase = createClientComponentClient();
     const handleLogout = async () => {
         await supabase.auth.signOut();

@@ -9,7 +9,7 @@ import { UserContext } from '../context/UserContext';
 const Login = () => {
     const supabase = createClientComponentClient();
     const router = useRouter();
-    const { user, setUser } = useContext(UserContext);
+    const { user, setUser } = useContext<any>(UserContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorText, setErrorText] = useState('');

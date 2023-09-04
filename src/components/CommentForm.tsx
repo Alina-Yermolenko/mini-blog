@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
 type Params = {
     postId: number,
     userId: string,
-    addComment: (a: Comment, b: number) => void
+    addComment: (newComment: any, postId: any) => void
 };
 
 const CommentForm: React.FC<Params> = ({ postId, userId, addComment }) => {

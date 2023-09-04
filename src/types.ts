@@ -18,6 +18,7 @@ export interface Post {
 }
 
 export interface User {
+    id?: string,
     auth_id?: string,
     user_type?: boolean,
     email?: string,

@@ -7,7 +7,7 @@ import { createClientComponentClient } from '@supabase/auth-helpers-nextjs'
 import ProtectedRoute from "@/components/ProtectedRoute";
 import { UserContext } from "@/app/context/UserContext";
 import { Typography, Box, makeStyles } from "@material-ui/core";
-import { Post as PostType } from "@/types";
+import { Post as PostType, User } from "@/types";
 
 const useStyles = makeStyles((theme) => ({
     authorFeed: {
@@ -33,14 +33,14 @@ const useStyles = makeStyles((theme) => ({
 
 function AuthorFeed({ params }: { params: { authorId: string } }) {
     const supabase = createClientComponentClient()
-    const { user: contextUser } = useContext(UserContext);
+    const { user: contextUser } = useContext<any>(UserContext);
     const classes = useStyles();
 
     const { authorId } = params;
-    const [author, setAuthor] = useState({});
-    const [posts, setPosts] = useState<PostType[]>([]);
-    const [commentator, setCommentator] = useState({});
-    const [isCommentator, setIsCommentator] = useState(false);
+    const [author, setAuthor] = useState<any>({});
+    const [posts, setPosts] = useState<any>([]);
+    const [commentator, setCommentator] = useState<any>({});
+    const [isCommentator, setIsCommentator] = useState<boolean>(false);
 
     useEffect(() => {
         const setUserSession = async () => {
@@ -98,7 +98,7 @@ function AuthorFeed({ params }: { params: { authorId: string } }) {
         <ProtectedRoute>
             <Box className={classes.authorFeed}>
                 <Typography variant="h4">Author Feed of {author?.email}</Typography>
-                {posts.map((post) => (
+                {posts.map((post: PostType) => (
                     <Box className={classes.post} key={post.id}>
                         <Post post={post} />
 

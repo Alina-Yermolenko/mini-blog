@@ -14,7 +14,7 @@ function GeneralFeed() {
     const [isError, setIsError] = useState(false);
     const [author, setAuthor] = useState({});
     const [isAuthor, setIsAuthor] = useState(false);
-    const { user } = useContext(UserContext);
+    const { user } = useContext<any>(UserContext);
 
     useEffect(() => {
         const setUserSession = async () => {
