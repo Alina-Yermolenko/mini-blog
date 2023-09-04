@@ -5,7 +5,7 @@ import { UserContext } from '@/app/context/UserContext';
 type Props = {
     children: React.ReactNode,
 }
-const ProtectedRoute:React.FC<Props> = ({ children }) => {
+const ProtectedRoute = ({ children }: Props): React.ReactNode => {
     const router = useRouter();
     const { user } = useContext<any>(UserContext);
 
