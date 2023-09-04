@@ -5,7 +5,7 @@ import { UserContext } from '@/app/context/UserContext';
 type Props = {
     children: React.ReactNode,
 }
-const ProtectedRoute = ({ children }: Props): React.ReactNode => {
+const ProtectedRoute:React.FC<Props> = ({ children }): JSX.Element => {
     const router = useRouter();
     const { user } = useContext<any>(UserContext);
 
@@ -19,7 +19,9 @@ const ProtectedRoute = ({ children }: Props): React.ReactNode => {
         checkAuthStatus();
     }, [router]);
 
-    return children;
+    return <>
+        {children}
+    </>
 };
 
 export default ProtectedRoute;
